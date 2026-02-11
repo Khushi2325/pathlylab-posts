@@ -14,7 +14,7 @@ body {
 }
 
 /* Heading */
-h1 {
+h1,h2 {
     text-align: center;
     color: #d13639;
     margin-bottom: 30px;
@@ -55,3 +55,122 @@ h1 {
     color: #222;
     word-wrap: break-word;
 }
+
+.create-post-link {
+    display: block;
+    width: fit-content;
+    margin: 20px auto 40px auto;
+    padding: 12px 28px;
+    background: linear-gradient(135deg, #d13639, #ff6b6b);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    box-shadow: 0 6px 18px rgba(209, 54, 57, 0.3);
+    transition: all 0.3s ease;
+}
+
+.create-post-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(209, 54, 57, 0.4);
+}
+
+/* Form Container */
+.form-con {
+    background: #ffffff;
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Input + Textarea */
+.form-con input,
+.form-con textarea {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Focus effect */
+.form-con input:focus,
+.form-con textarea:focus {
+    outline: none;
+    border-color: #d13639;
+    box-shadow: 0 0 0 3px rgba(209, 54, 57, 0.1);
+}
+
+/* Textarea size */
+.form-con textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* Submit Button */
+.form-con button {
+    align-self: flex-start;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #d13639, #ff6b6b);
+    color: white;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+/* Button hover */
+.form-con button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(209, 54, 57, 0.3);
+}
+
+/* Post Header (Username + ID aligned nicely) */
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+/* ID Badge */
+.post-id {
+    display: inline-block;
+    margin: 0 auto 10px auto;
+    padding: 6px 14px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    background-color: #fff;
+    color: #d13639;
+    border: 1px solid rgba(209, 54, 57, 0.3);
+    border-radius: 20px;
+}
+
+.view-post-link {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #d13639;
+    background-color: #fff;
+    border: 1px solid #d13639;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: all 0.25s ease;
+}
+
+.view-post-link:hover {
+    background-color: #d13639;
+    color: #fff;
+}
+
