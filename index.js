@@ -1,13 +1,16 @@
 const express = require('express');
 const app = express();
-const port = 8080;
+const PORT = process.env.PORT || 8080;
 const methodOverride = require('method-override');
 app.use(methodOverride('_method'));
 const Post = require('./models/post.js');
 const mongoose = require('mongoose');
+require("dotenv").config();
+
+const MONGO_URL = process.env.MONGO_URL;
 
 async function main(){
-    await mongoose.connect('mongodb://127.0.0.1:27017/posts');
+    await mongoose.connect(MONGO_URL);
 }
 
 main().then(() => {
@@ -71,6 +74,6 @@ app.delete("/posts/:id", async (req, res) => {
     res.redirect("/posts");
 });
 
-app.listen(port, () => {
-    console.log("listening on port 8080");
+app.listen(PORT, () => {
+    console.log(`listening on port ${PORT}`);
 });

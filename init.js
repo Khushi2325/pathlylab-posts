@@ -1,8 +1,11 @@
 const mongoose = require('mongoose');
 const Post = require('./models/post.js');
+require("dotenv").config();
+
+const MONGO_URL = process.env.MONGO_URL;
 
 async function main(){
-    await mongoose.connect('mongodb://127.0.0.1:27017/posts');
+    await mongoose.connect(MONGO_URL);
 }
 
 main().then(() => {
