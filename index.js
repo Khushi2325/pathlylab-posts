@@ -254,6 +254,11 @@ app.get('/posts/:id/edit', isAuthenticated, async (req, res) => {
     }
 });
 
+// Health check endpoint
+app.get('/health', (req, res) => {
+    res.status(200).send('OK');
+});
+
 // Delete post
 app.delete('/posts/:id', isAuthenticated, async (req, res) => {
     try {
@@ -277,4 +282,18 @@ app.delete('/posts/:id', isAuthenticated, async (req, res) => {
 
 app.listen(PORT, () => {
     console.log(`listening on port ${PORT}`);
+    
+    // Self-ping to keep app alive on Render
+    setInterval(() => {
+        const http = require('http');
+        const pingUrl = `http://localhost:${PORT}/health`;
+        
+        http.get(pingUrl, (res) => {
+            if (res.statusCode === 200) {
+                console.log(`[${new Date().toISOString()}] App pinged successfully - staying alive`);
+            }
+        }).on('error', (err) => {
+            console.log(`Ping error: ${err.message}`);
+        });
+    }, 5 * 60 * 1000); // Ping every 5 minutes
 });
